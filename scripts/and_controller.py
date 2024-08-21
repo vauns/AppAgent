@@ -146,6 +146,11 @@ class AndroidController:
         ret = execute_adb(adb_command)
         return ret
 
+    def enter(self):
+        adb_command = f"adb -s {self.device} shell input keyevent KEYCODE_ENTER"
+        ret = execute_adb(adb_command)
+        return ret
+
     def long_press(self, x, y, duration=1000):
         adb_command = f"adb -s {self.device} shell input swipe {x} {y} {x} {y} {duration}"
         ret = execute_adb(adb_command)
